@@ -13,7 +13,6 @@ client.connect(PORT, HOST, function() {
     
 });
 
-var state = 0;
 
 client.on('data', function(data) {
     function prompt(question) {
@@ -32,9 +31,17 @@ client.on('data', function(data) {
     
     (async function () {
 
-        let a = Number(await prompt(data));
+        Number(await prompt(data));
     
     })();
     
 
 });
+
+client.on('destroy', function() {
+
+    console.log('Game Over!');
+    
+});
+
+
